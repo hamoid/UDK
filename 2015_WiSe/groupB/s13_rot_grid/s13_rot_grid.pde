@@ -9,7 +9,7 @@ void setup() {
 void draw() {
   pushMatrix();
   translate(x, y);
-  rotate(radians(frameCount));
+  rotate(radians(frameCount * 0.3));
   rect(0, 0, 40, 10);
   popMatrix();
   
