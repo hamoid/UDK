@@ -3,6 +3,7 @@ ArrayList<PVector> points = new ArrayList<PVector>();
 void setup() {
   size(600, 600);
   fill(0);
+  noStroke();
 }
 void draw() {
   background(255);
@@ -15,7 +16,8 @@ void draw() {
         float d = curr.dist(p);
         totalDist += 1/d;
       }
-      ellipse(x, y, 250*totalDist, 250*totalDist);
+      float sz = min(250 * totalDist, 20);
+      ellipse(x, y, sz, sz);
     }
   }
 }
