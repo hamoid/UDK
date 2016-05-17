@@ -1,8 +1,24 @@
+// See File > Examples > Libraries > PDF Export > OneFrame
+// for a simpler example.
+
+import processing.pdf.*;
+
 float x, y, stepSize, angle;
 float dotSize, decreaseRate;
 float bri;
 void setup() {
   size(600, 600);
+  
+  ellipse(0, 0, 300, 300);
+  
+  // Create PDF file for saving
+  beginRecord(PDF, "plant.pdf");
+  
+  // Anything that was drawn before
+  // beginRecord() is not included
+  // in the PDF file (for instance
+  // the ellipse above)
+
   background(255);
   noStroke();
   
@@ -12,7 +28,7 @@ void setup() {
   angle = TWO_PI;
   dotSize = 20;
   decreaseRate = random(0.1, 1);
-  bri = 0;
+  bri = 0;  
 }
 
 void draw() {
@@ -54,5 +70,16 @@ void draw() {
     
     // bounce back
     //angle = angle + PI;
+  }
+}
+void keyPressed() {
+  // if I press q, end the PDF output
+  // and quit Processing
+  if(key == 'q') {
+    endRecord();
+    exit();
+  }
+  if(key == 's') {
+    save("plant.png");
   }
 }
