@@ -51,3 +51,8 @@ void draw() {
   // Reset the steps counter. We get 250 steps to draw a line.
   stepsToGo = 250;
 }
+void keyPressed() {
+  if (key == 's') {
+    save(System.currentTimeMillis() + ".tif");
+  }
+}

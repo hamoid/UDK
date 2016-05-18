@@ -1,6 +1,9 @@
 // Based on Kunstformen der Natur
 // https://en.wikipedia.org/wiki/Kunstformen_der_Natur#/media/File:Haeckel_Ascidiae.jpg
 
+// Draw a simple radial shape with bezier curves
+// connecting circles.
+
 float angleInDegrees = 0;
 float centerX;
 float centerY;
@@ -12,7 +15,7 @@ void setup() {
   centerX = width / 2;
   centerY = height / 2;
 
-  // draw base circle
+  // draw background circle
   strokeWeight(2);
   stroke(#C5993D);
   fill(#EECD6E);
@@ -21,6 +24,12 @@ void setup() {
 
 void draw() {
   if (angleInDegrees < 360) {
+    // All trigonometric functions in Processing
+    // work with radians instead of degrees.
+    // That means that they expect values
+    // between 0 and TWO_PI. If you prefer to use
+    // degrees, you can use the radians() function
+    // to convert degrees into radians.
     float angleInRadians = radians(angleInDegrees);
 
     // find a point that is 200 pixels away from the center,
@@ -36,6 +45,8 @@ void draw() {
     stroke(#9B5D00);
     noFill();
     // draw a curve connecting the two points
+    // the two control points are somewhere 
+    // near the start and end points.
     bezier(x, y, 
       x+random(-25, 25), y+random(-25, 25), 
       xx+random(-25, 25), yy+random(-25, 25), 
@@ -43,11 +54,18 @@ void draw() {
 
     fill(#842A01);
     // draw an ellipse on each point
+    // (almost a circle, but not quite)
     ellipse(x, y, random(90, 110), random(90, 110));
     ellipse(xx, yy, random(25, 35), random(25, 35));
 
-    // By rotating 30 degrees we get 12 items 
-    // (like the hours on an analog clock)
+    // By rotating 30 degrees we get 12 items
+    // before reaching 360.
+    // (like the 12 hours on an analog clock)
     angleInDegrees = angleInDegrees + 30;
+  }
+}
+void keyPressed() {
+  if(key == 's') {
+    save(System.currentTimeMillis() + ".png");
   }
 }

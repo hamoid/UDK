@@ -1,6 +1,9 @@
 // Based on Kunstformen der Natur
 // https://en.wikipedia.org/wiki/Kunstformen_der_Natur#/media/File:Haeckel_Ascidiae.jpg
 
+// Draw a set of circles laid out in a radial
+// fashion, on top of a larger circle.
+
 float angleInDegrees = 0;
 float centerX;
 float centerY;
