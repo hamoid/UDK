@@ -12,6 +12,8 @@ void setup() {
   // Draw the image on the center of the window
   float x = width / 2 - paper.width / 2;
   float y = height / 2 - paper.height / 2;
+  // alternative
+  //imageMode(CENTER);
   image(paper, x, y);
   
   noFill();
@@ -22,7 +24,7 @@ void draw() {
     // calculate a transparency value between 0 and 60.
     // It oscillates between those two values over time.
     // The multiplied value sets the oscillation speed.
-    float alpha = map(sin(frameCount * 0.1), -1, 1, 0, 60);
+    float alpha = map(sin(frameCount * 0.03), -1, 1, 0, 60);
     stroke(40, 20, 5, alpha);
 
     // We will draw a curve starting at the center

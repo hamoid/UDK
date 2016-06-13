@@ -23,6 +23,28 @@ void setup() {
   fill(lightBlue);
   ellipse(width/2, height/2, 200, 200);
 
+  reset();
+}
+
+void draw() {
+  // make the angle oscillate (increase, decrease, increase...)
+  angle = angle + 0.03 * sin(frameCount * 0.1);
+  // increase the distance
+  distance = distance + 1;
+  // calculate the pen position based on distance and angle
+  x = width / 2 + distance * cos(angle);
+  y = height / 2 + distance * sin(angle);
+
+  // if we went too far...
+  if (distance > 200) {
+    reset();
+  }
+  
+  // draw an ellipse on the point we calculated above
+  // using polar coordinates
+  ellipse(x, y, 10, 10);
+}
+void reset() {
   // a random direction
   angle = radians(random(360));
   // we start at this distance, and increase it
@@ -36,36 +58,6 @@ void setup() {
     stroke(darkRed);
     fill(lightRed);
   }
-}
-
-void draw() {
-  // make the angle oscillate (increase, decrease, increase...)
-  angle = angle + 0.01 * sin(frameCount * 0.1);
-  // increase the distance
-  distance = distance + 1;
-  // calculate the pen position based on distance and angle
-  x = width / 2 + distance * cos(angle);
-  y = height / 2 + distance * sin(angle);
-
-  // if we went too far...
-  if (distance > 200) {
-    // randomize the angle again
-    angle = radians(random(360));
-    // reset the distance
-    distance = 80;
-    // and choose again a random color
-    if (random(100) < 90) {
-      stroke(darkYellow);
-      fill(lightYellow);
-    } else {
-      stroke(darkRed);
-      fill(lightRed);
-    }
-  }
-  
-  // draw an ellipse on the point we calculated above
-  // using polar coordinates
-  ellipse(x, y, 10, 10);
 }
 void keyPressed() {
   if (key == 's') {

@@ -32,7 +32,7 @@ void draw() {
     // to convert degrees into radians.
     float angleInRadians = radians(angleInDegrees);
 
-    // find a point that is 200 pixels away from the center,
+    // find a point that is 230 pixels away from the center,
     // in the direction specifiend by angleInDegrees
     float x = centerX + 230 * cos(angleInRadians);
     float y = centerY + 230 * sin(angleInRadians);
@@ -47,6 +47,7 @@ void draw() {
     // draw a curve connecting the two points
     // the two control points are somewhere 
     // near the start and end points.
+
     bezier(x, y, 
       x+random(-25, 25), y+random(-25, 25), 
       xx+random(-25, 25), yy+random(-25, 25), 
@@ -61,7 +62,7 @@ void draw() {
     // By rotating 30 degrees we get 12 items
     // before reaching 360.
     // (like the 12 hours on an analog clock)
-    angleInDegrees = angleInDegrees + 30;
+    angleInDegrees = angleInDegrees + 360/12;    
   }
 }
 void keyPressed() {
