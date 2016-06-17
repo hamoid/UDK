@@ -14,16 +14,16 @@ void recursiveCircle(float x, float y, float angle, float generation) {
     // the branch turns a bit randomly
     float newAngle = angle + random(-0.5, 0.5);
     // the step is always the same size (10)
-    float newX = x + 10 * cos(angle);
-    float newY = y + 10 * sin(angle);
+    float newX = x + 10 * cos(newAngle);
+    float newY = y + 10 * sin(newAngle);
     recursiveCircle(newX, newY, newAngle, generation + 1);
-    
+
     // 10% chance of starting a new branch
     if(random(100) < 10) {
       // the new branch has a more random direction
       newAngle = angle + random(-1, 1);
-      newX = x + 10 * cos(angle);
-      newY = y + 10 * sin(angle);
+      newX = x + 10 * cos(newAngle);
+      newY = y + 10 * sin(newAngle);
       recursiveCircle(newX, newY, newAngle, generation + 1);      
     }
   }

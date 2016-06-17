@@ -20,7 +20,8 @@ void recursiveRect(float cx, float cy, float side) {
       // if not red, map the size of the rectangle to a grayscale
       // value. The initial rectangle, of size 255, maps to white (255).
       // The smallest rectangle, of size 5, maps to dark gray (50).
-      fill(map(side, 255, 5, 255, 50));
+      float grayValue = map(side, 255, 5, 255, 50);
+      fill(grayValue);
     }
     rect(cx, cy, side, side);
   }
