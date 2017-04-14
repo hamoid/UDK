@@ -1,3 +1,4 @@
 # Processing sketches - UdK courses
 
-Processing sketches written during class. Winter semester 2015 and Summer semester 2016.
+Moved to https://github.com/hamoid/workshop
+
